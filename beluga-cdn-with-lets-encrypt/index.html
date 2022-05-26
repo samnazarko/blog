@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">Experiments with Let&#x27;s Encrypt and Beluga CDN | Sam Nazarko</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.75em Merriweather,Georgia,serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.9);font-family:Merriweather,Georgia,serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Montserrat,sans-serif;font-weight:900;text-rendering:optimizeLegibility;font-size:2.5rem;line-height:3.5rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Merriweather,Georgia,serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.73286rem;line-height:2.625rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Merriweather,Georgia,serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.4427rem;line-height:1.75rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Merriweather,Georgia,serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.75rem;letter-spacing:0.140625em;text-transform:uppercase;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Merriweather,Georgia,serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.83255rem;line-height:1.75rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Merriweather,Georgia,serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.75966rem;line-height:1.75rem;font-style:italic;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}ul{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;list-style:disc;}ol{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:0.85rem;line-height:1.75rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1rem;line-height:1.75rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}blockquote{margin-left:-1.75rem;margin-right:1.75rem;margin-top:0;padding-bottom:0;padding-left:1.42188rem;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1.20112rem;line-height:1.75rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.32813rem solid hsla(0,0%,0%,0.9);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.75rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.75rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}li > ul{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.75rem / 2);}code{font-size:0.85rem;line-height:1.75rem;}kbd{font-size:0.85rem;line-height:1.75rem;}samp{font-size:0.85rem;line-height:1.75rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.16667rem;padding-right:1.16667rem;padding-top:0.875rem;padding-bottom:calc(0.875rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.75rem;color:hsla(0,0%,0%,0.9);font-weight:400;}blockquote cite:before{content:"— ";}ul,ol{margin-left:0;}@media only screen and (max-width:480px){ul,ol{margin-left:1.75rem;}blockquote{margin-left:-1.3125rem;margin-right:0;padding-left:0.98438rem;}}h1,h2,h3,h4,h5,h6{margin-top:3.5rem;}a{box-shadow:0 1px 0 0 currentColor;color:#007acc;text-decoration:none;}a:hover,a:active{box-shadow:none;}mark,ins{background:#007acc;color:white;padding:0.10938rem 0.21875rem;text-decoration:none;}</style><link href="//fonts.googleapis.com/css?family=Montserrat:700|Merriweather:400,400i,700,700i,900,900i" rel="stylesheet" type="text/css"/><style>.markdown pre{display:block;background:#3f3f3f;color:#dcdcdc;overflow-y:hidden}.markdown pre code{background:none;border:none;border-radius:3px;display:inline-block;overflow:inherit;padding:25.333px;padding:1.58333rem;white-space:inherit;word-wrap:normal}code{border-radius:3px;white-space:pre;white-space:pre-wrap;white-space:pre-line;white-space:-pre-wrap;white-space:-o-pre-wrap;white-space:-moz-pre-wrap;white-space:-hp-pre-wrap;word-wrap:break-word;background:#e5e5e5;border:1px solid #ccc;display:inline;font-family:Inconsolata,monospace,serif;max-width:100%;overflow:auto;padding:0 2.6px;padding:0 .1625rem}.clojure .hljs-attribute,.css .hljs-class,.css .hljs-id,.hljs-keyword,.hljs-request,.hljs-status,.hljs-tag,.lisp .hljs-title,.nginx .hljs-title{color:#e3ceab}.django .hljs-filter .hljs-argument,.django .hljs-template_tag,.django .hljs-variable{color:#dcdcdc}.hljs-date,.hljs-number{color:#8cd0d3}.apache .hljs-sqbracket,.dos .hljs-envvar,.dos .hljs-stream,.hljs-variable{color:#efdcbc}.diff .hljs-change,.dos .hljs-flow,.hljs-literal,.python .exception,.python .hljs-built_in,.tex .hljs-special{color:#efefaf}.diff .hljs-chunk,.hljs-subst{color:#8f8f8f}.apache .hljs-tag,.diff .hljs-header,.dos .hljs-keyword,.haskell .hljs-type,.hljs-prompt,.hljs-title,.nginx .hljs-built_in,.python .hljs-decorator,.ruby .hljs-class .hljs-parent,.tex .hljs-command{color:#efef8f}.dos .hljs-winutils,.ruby .hljs-string,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string{color:#dca3a3}.apache .hljs-cbracket,.coffeescript .hljs-attribute,.css .hljs-rules .hljs-value,.diff .hljs-deletion,.hljs-attr_selector,.hljs-built_in,.hljs-javadoc,.hljs-pragma,.hljs-preprocessor,.hljs-pseudo,.hljs-string,.hljs-tag .hljs-value,.smalltalk .hljs-array,.smalltalk .hljs-class,.smalltalk .hljs-localvars,.sql .hljs-aggregate,.tex .hljs-formula{color:#cc9393}.diff .hljs-addition,.hljs-comment,.hljs-doctype,.hljs-pi,.hljs-shebang,.hljs-template_comment,.java .hljs-annotation{color:#7f9f7f}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .css,.xml .hljs-cdata,.xml .javascript,.xml .vbscript{opacity:.5}</style></head><body><div id="react-mount"><div style="max-width:42rem;margin-left:auto;margin-right:auto;padding:2.625rem 1.3125rem;" data-reactroot="" data-reactid="1" data-react-checksum="1910551390"><h3 style="font-family:Montserrat, sans-serif;margin-top:0;" data-reactid="2"><a style="box-shadow:none;text-decoration:none;color:inherit;" href="/" data-reactid="3">Sam Nazarko</a></h3><div class="markdown" data-reactid="4"><!-- react-empty: 5 --><h1 style="margin-top:0;" data-reactid="6">Experiments with Let&#x27;s Encrypt and Beluga CDN</h1><div data-reactid="7"><p>Origin pull CDNs are nothing new. But Beluga CDN is a new CDN.</p>
+<p>We’ve used a push CDN system for OSMC for years to deliver downloads and updates to
+our users. But until recently, the OSMC website, forum and other assets were being served
+directly from our web servers.</p>
+<p>In September 2016, I saw an advert for Beluga CDN. They offered 100GB of free bandwidth for life, so I thought I’d try it out.</p>
+<p>After creating an account I reached out to them and they were kind enough to
+offer some advice, as well as sponsor OSMC with enough bandwidth for us to give them
+a real go.</p>
+<p>I was interested in trying out an origin pull CDN as I hadn’t used one before. I wanted to learn more about the requirements of managing an origin-pull CDN properly: including Varnish configuration and how to integrate it in to our existing deployment system.</p>
+<p>There were also a couple of advantages I was looking forward to:</p>
+<ul>
+<li>Reducing origin bandwidth. Sometimes we’ll get a retweet / article mention or a surge of traffic when a new update is released.
+This hasn’t caused problems in the past, but the less bandwidth we use and the more traffic that we can offload, the better. OSMC’s userbase is growing significantly and planning for this is important.</li>
+<li>Reducing round trip time for those browsing outside of the UK, where we’re hosted. If we can make the forums, the Wiki and the website
+a bit faster for users, why not?</li>
+</ul>
+<h2>Getting started</h2>
+<p>Getting started was simple enough. You enter your origin URL and that’s it. You’ll get a subdomain which you can configure as a CNAME record.</p>
+<p>After a couple of weeks, we ran in to a couple of issues
+with some users experiencing problems, but providing Beluga with <code>wget --server-response</code> was enough for
+them to identify a faulty server and resolve the issue promptly. Since then, things have been working
+smoothly.</p>
+<p>The Beluga web interface gives you some insights in to metrics and traffic usage. This lets you budget
+and plan accordingly.</p>
+<p><img src="beluga_interface.png" alt="Beluga metrics"></p>
+<h2>Let’s Encrypt</h2>
+<p>Recently, I moved all of our SSL certificates to Let’s Encrypt. These certificates have a very short lifespan (90 days); which means that they do need to be updated regularly.</p>
+<p>For generation and renewal of SSL certificates, we use <a href="https://github.com/xenolf/lego">LEGO</a>, a Let’s Encrypt ACME client written in Go.</p>
+<p>We use the DNS based challenge as it allows any server to generate a certificate for a given domain. This is better than the response challenge for HTTP, as some of our services are running in containers or on different hosts altogether. When Let’s Encrypt supports wildcard certificates in 2018, this will be greatly simplified.</p>
+<h2>The Beluga API</h2>
+<p>Once we have a certificate and key, we can pipe these in to Beluga via their API.</p>
+<p>Beluga have a good API with a good <a href="https://github.com/belugacdn/python-beluga">Python package</a> to leverage this. I initally found an issue where a Python package was depended on without a check to see whether this
+existed but Beluga <a href="https://github.com/belugacdn/python-beluga/pull/1">accepted a PR</a> to remedy this quickly.</p>
+<p>Once the Let’s Encrypt certificate has been retreived, and we have the Beluga Python package installed, we
+need to process the certificate and push it to Beluga.</p>
+<p>To process the certificate, we run:</p>
+<pre><code>openssl -x509 -<span class="hljs-keyword">in</span> <span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/certificate/</span>domain.crt &gt; <span class="hljs-regexp">/tmp/</span>cert_file
+cp <span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/certificate/</span>domain.key <span class="hljs-regexp">/tmp/</span>key_file
+python push_to_beluga.py <span class="hljs-string">"domain_name.com"</span>
+</code></pre>
+<p>And in our <code>push_to_beluga.py</code> file, we have:</p>
+<pre><code>#!/usr/bin/env python2
+import json, subprocess, sys
+
+domain = sys.argv[<span class="hljs-number">1</span>]
+user=<span class="hljs-string">"account@email.com"</span>
+password=<span class="hljs-string">"password"</span>
+
+beluga_cmd1 = [<span class="hljs-string">'beluga'</span>, <span class="hljs-string">'--username'</span>, user, <span class="hljs-string">'--password'</span>, password, <span class="hljs-string">'--path'</span>, <span class="hljs-string">'ssl-certificates'</span>]
+
+<span class="hljs-built_in">output</span> = subprocess.check_output(beluga_cmd1)
+joutput = json.loads(<span class="hljs-built_in">output</span>)
+
+<span class="hljs-keyword">for</span> cert <span class="hljs-keyword">in</span> joutput[<span class="hljs-string">'certificates'</span>]:
+    <span class="hljs-keyword">if</span> domain <span class="hljs-keyword">in</span> cert[<span class="hljs-string">'names'</span>]:
+        cert_id = cert[<span class="hljs-string">'id'</span>]
+        <span class="hljs-keyword">break</span>
+
+with <span class="hljs-built_in">open</span>(<span class="hljs-string">"/tmp/cert_file"</span>) as fp:
+    cert = fp.<span class="hljs-built_in">read</span>()
+
+with <span class="hljs-built_in">open</span>(<span class="hljs-string">"/tmp/key_file"</span>) as fp:
+    key = fp.<span class="hljs-built_in">read</span>()
+
+body = json.dumps({<span class="hljs-string">'certificate'</span> : cert, <span class="hljs-string">'id'</span>: cert_id, <span class="hljs-string">'key'</span>: key})
+
+<span class="hljs-built_in">print</span> body
+
+beluga_cmd2 = [<span class="hljs-string">'beluga'</span>, <span class="hljs-string">'--username'</span>, user, <span class="hljs-string">'--password'</span>, password, <span class="hljs-string">'--method'</span>, <span class="hljs-string">'PUT'</span>,
+               <span class="hljs-string">'--path'</span>, <span class="hljs-string">'ssl-certificates'</span>, <span class="hljs-string">'--body'</span>, body]
+<span class="hljs-built_in">output</span> = subprocess.check_output(beluga_cmd2)
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">output</span>
+
+</code></pre>
+<h2>Getting a Slack notification when this is done</h2>
+<p>This process is automated as a cronjob for us, but it’s nice to keep an eye on it and know when
+it’s succeeded.</p>
+<p>Here’s a simple bash script to add progress, which you can call after a successful certificate
+update. You’ll need to configure Slackbot under Custom Integrations first, and get the Hook URL.</p>
+<pre><code>DOMAIN=<span class="hljs-string">"$1"</span>
+SLACK_URL=<span class="hljs-string">"https://hooks.slack.com/services/PATH-TO-SERVICE"</span>
+curl -X POST --data-urlencode 'payload={<span class="hljs-string">"channel"</span>: <span class="hljs-string">"#general"</span>, <span class="hljs-string">"username"</span>: <span class="hljs-string">"Job information"</span>, <span class="hljs-string">"text"</span>: <span class="hljs-string">""</span>, <span class="hljs-string">"icon_emoji"</span>: <span class="hljs-string">":osmc:"</span>,
+    <span class="hljs-string">"attachments"</span>: [
+        {
+            <span class="hljs-string">"fallback"</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-string">"color"</span>: <span class="hljs-string">"#36a64f"</span>,
+            <span class="hljs-string">"pretext"</span>: <span class="hljs-string">"Renewed SSL certificate successfully"</span>,
+            <span class="hljs-string">"fields"</span>: [
+                {
+                    <span class="hljs-string">"title"</span>: <span class="hljs-string">"Domain"</span>,
+                    <span class="hljs-string">"value"</span>: <span class="hljs-string">"'"</span>${DOMAIN}<span class="hljs-string">"'"</span>,
+                    <span class="hljs-string">"short"</span>: true
+                }
+            ],
+            <span class="hljs-string">"footer"</span>: <span class="hljs-string">"Certificate renewal"</span>,
+            <span class="hljs-string">"footer_icon"</span>: <span class="hljs-string">"https://yourdomain.com/favicon.ico"</span>
+        }
+    ]
+}' $SLACK_URL
+</code></pre>
+<h2>Result: (almost) text only serving</h2>
+<p>Now, with an origin-pull CDN for web, and an origin-push CDN for OSMC updates, we’re very close
+to just serving text from our web servers. That means less bandwidth use for our web host (who are very
+generous), and the ability to handle more traffic in the future.</p>
+<p>I would recommend Beluga CDN for its very proactive support and for their offer to help our open
+source project alone. After testing the CDN extensively over the last few months we’ve found it to be
+very fast and reliable.</p>
+</div><em style="display:block;margin-bottom:3.5rem;" data-reactid="8"><!-- react-text: 9 -->Posted <!-- /react-text --><!-- react-text: 10 -->August 6, 2017<!-- /react-text --></em><hr style="margin-bottom:3.5rem;" data-reactid="11"/><noscript data-reactid="12"></noscript><p style="margin-bottom:4.375rem;" data-reactid="13"><!-- react-text: 14 -->Written by <!-- /react-text --><strong data-reactid="15">Sam Nazarko</strong><!-- react-text: 16 -->, a 20s London chap who is an open source developer by night. <!-- /react-text --><a href="https://twitter.com/SamNazarko" data-reactid="17"> Follow me on Twitter </a></p></div><span style="display:block;clear:both;" data-reactid="18"> </span></div></div><script src="/bundle.js?t=1653532965758"></script></body></html>
